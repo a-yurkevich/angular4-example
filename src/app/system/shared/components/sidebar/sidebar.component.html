@@ -1,0 +1,27 @@
+<div class="sidebar-menu">
+  <div class="sidebar-header">
+    <div class="logo">
+      <a href="index.html">Учет</a>
+    </div>
+  </div>
+  <div class="main-menu">
+    <div class="menu-inner">
+      <nav>
+        <ul class="metismenu" id="menu">
+          <li routerLinkActive="active">
+            <a [routerLink]="['/system', 'bill']"><span>Счет</span></a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['/system', 'history']"><span>История</span></a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['/system/planning']"><span>Планнинг</span></a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['/system/records']"><span>Запись</span></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

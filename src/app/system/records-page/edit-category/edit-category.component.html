@@ -1,0 +1,70 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="header-title">Редактирование категорий</h4>
+    <div
+      class="alert alert-{{message.type}}"
+      *ngIf="message.text"
+    >
+      {{message.text}}
+    </div>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="form-group">
+        <label class="col-form-label">Выберите категорию</label>
+        <select
+          class="form-control"
+          [(ngModel)]="currentCategoryId"
+          (change)="onCategoryChange()"
+          [ngModelOptions]="{standalone: true}"
+        >
+          <option
+            [value]="c.id"
+            *ngFor="let c of categories">{{c.name}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="e-example-text-input1" class="col-form-label">Введите название</label>
+        <input
+          class="form-control"
+          type="text"
+          value=""
+          id="e-example-text-input1"
+          name="name"
+          required=""
+          #name="ngModel"
+          [ngModel]="currentCategory.name"
+        >
+        <small
+          class="form-text error-msg"
+          *ngIf="name.invalid && name.touched"
+        >
+          <span>Поле обязательно</span>
+        </small>
+      </div>
+      <div class="form-group">
+        <label for="e-example-text-input2" class="col-form-label">Введите лимит</label>
+        <input
+          class="form-control"
+          type="number"
+          id="e-example-text-input2"
+          name="capacity"
+          required=""
+          #capacity="ngModel"
+          [ngModel]="currentCategory.capacity"
+          min="1"
+        >
+        <small
+          class="form-text error-msg"
+          *ngIf="capacity.invalid && capacity.touched"
+        >
+          <span>Поле обязательно</span>
+        </small>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary mb-3"
+        [disabled]="f.invalid"
+      >Сохранить</button>
+    </form>
+  </div>
+</div>

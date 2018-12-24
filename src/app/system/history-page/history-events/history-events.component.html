@@ -1,0 +1,64 @@
+<div class="row" style="margin-top: 24px">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+
+        <h4 class="header-title">Список событий</h4>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                [placeholder]="searchPlaceholder"
+                [(ngModel)]="searchValue"
+              >
+            </div>
+            <div class="form-group">
+              <label class="col-form-label">Параметр</label>
+              <select class="form-control" (change)="onChange($event.target.value)">
+                <option value="amount">Сумма</option>
+                <option value="date">Дата</option>
+                <option value="category">Категория</option>
+                <option value="type">Тип</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <table class="dbkit-table">
+          <thead>
+          <tr>
+            <td>#</td>
+            <td>Сумма</td>
+            <td>Дата</td>
+            <td>Категория</td>
+            <td>Тип</td>
+            <td>Действие</td>
+          </tr>
+          </thead>
+          <tbody>
+            <tr
+              class="heading-td"
+              *ngFor="let e of events | appFilter:searchValue:searchField; let idx = index"
+            >
+              <td>{{idx + 1}}</td>
+              <td>{{e.amount | number:'1.2'}}</td>
+              <td>{{e.date | appMoment:'DD.MM.YYYY'}}</td>
+              <td>{{e.categoryName}}</td>
+              <td>
+                <span [ngClass]="getEventClass(e)">
+                  <span *ngIf="e.type === 'income'">Доход</span>
+                  <span *ngIf="e.type === 'outcome'">Расход</span>
+                </span>
+              </td>
+              <td>
+                <a [routerLink]="['/system/history', e.id]" class="btn btn-flat btn-outline-success btn-xs mb-3">Открыть</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<section *ngIf="isLoaded">
+  <span class="btn btn-flat btn-outline-success btn-xs mb-3" (click)="openPopup()">Open</span>
+
+  <app-history-chart [data]="chartData"></app-history-chart>
+
+  <app-history-events [categories]="categories" [events]="events"></app-history-events>
+
+  <div *ngIf="isPopupVisible">
+    <app-history-filter (onPopupCancel)="onPopupCancel()" ></app-history-filter>
+  </div>
+
+</section>
+
+
+<section class="justify-content-center" *ngIf="!isLoaded">
+  <app-loader></app-loader>
+</section>

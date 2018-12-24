@@ -1,0 +1,38 @@
+<section class="justify-content-center" *ngIf="!isLoaded">
+  <app-loader></app-loader>
+</section>
+
+<section *ngIf="isLoaded">
+
+<div class="row">
+  <div class="col-lg-6 col-ml-12">
+    <div class="row">
+      <div class="col-12 mt-5">
+        <app-add-event [categories]="categories"></app-add-event>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 col-ml-12">
+    <div class="row">
+      <div class="col-12 mt-5">
+        <app-add-category (onCategoryAdd)="newCategoryAdded($event)"></app-add-category>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-6 col-ml-12">
+    <div class="row">
+      <div class="col-12 mt-5">
+        <app-edit-category
+          [categories]="categories"
+          (onCategoryEdit)="categoryWasEdited($event)"
+        ></app-edit-category>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>

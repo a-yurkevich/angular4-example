@@ -1,0 +1,13 @@
+<div class="header-area">
+  <div class="row">
+    <div class="col-sm-12 clearfix">
+      <div class="user-profile pull-right">
+        <h4 class="user-name dropdown-toggle" data-toggle="dropdown">{{user.name}} ({{ date | date:'dd.MM.yyyy'}})</h4>
+        <ul>
+          <li><a (click)="onLogout()">Выход</a></li>
+          <li><a [routerLink]="['/system', 'records']">Создать запись</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

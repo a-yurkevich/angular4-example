@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+.error-msg {
+  color: #f96776;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+.auth-form-error-wrapper {
+  min-height: 20px;
+}
+
+.menu-inner {
+  overflow: auto;
+}
+
+.page-title-area {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.main-content-inner {
+  height: 100vh;
+
+  .content {
+    padding-top: 36px;
+  }
+}

@@ -1,0 +1,25 @@
+ul {
+  display: inline-block;
+  position: absolute;
+  right: 24px;
+
+  li {
+    float: right;
+
+    + li {
+      padding-right: 8px;
+    }
+  }
+
+  a {
+    color: #fff;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:active, &:visited {
+      color: #fff;
+    }
+  }
+}

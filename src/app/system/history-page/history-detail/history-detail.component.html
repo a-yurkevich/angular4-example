@@ -1,0 +1,21 @@
+<section *ngIf="isLoaded">
+  <div class="row">
+    <div class="col-lg-6">
+      <div>Запись #: {{event.id}}</div>
+      <div>Тип:
+        <span *ngIf="event.type === 'outcome'">Расход</span>
+        <span *ngIf="event.type === 'income'">Доход</span>
+      </div>
+      <div>Дата: {{event.date | appMoment:'DD.MM.YYYY'}}</div>
+      <div>Сумма: {{event.amount | number:'1.2'}} Руб.</div>
+      <div>Категория: {{event.categoryName}}</div>
+      <div class="back">
+        <a [routerLink]="['/system/history']" class="btn btn-flat btn-outline-success btn-xs mb-3">Назад</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="justify-content-center" *ngIf="!isLoaded">
+  <app-loader></app-loader>
+</section>
