@@ -8,13 +8,13 @@
     }
   ],
   "bill": {
-    "value": 99300,
+    "value": 100513,
     "currency": "RUB"
   },
   "categories": [
     {
-      "name": "Дом2",
-      "capacity": 22000,
+      "name": "Дом22",
+      "capacity": 23000,
       "id": 1
     },
     {
@@ -68,6 +68,14 @@
       "description": "Update",
       "id": 9,
       "categoryName": "Еда"
+    },
+    {
+      "type": "income",
+      "amount": 1213,
+      "category": 1,
+      "date": "25.12.2018 00:57:19",
+      "description": "Описание 1213",
+      "id": 10
     }
   ]
 }
